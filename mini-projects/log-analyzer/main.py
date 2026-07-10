@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class LogAnalyzer:
     def __init__(self, file_path):
         self.file_path = file_path
@@ -13,17 +15,16 @@ class LogAnalyzer:
                 self.log_counts["WARNING"] += 1
             elif line.startswith("ERROR"):
                 self.log_counts["ERROR"] += 1
-        
-
 
     def print_summary(self):
         print("========= Log Summary =========")
         print(f"INFO: {self.log_counts['INFO']}")
         print(f"WARNING: {self.log_counts['WARNING']}")
         print(f"ERROR: {self.log_counts['ERROR']}")
-        
-    
+
 if __name__ == "__main__":
-    analyzer = LogAnalyzer("sample_log.txt")
+    script_dir = Path(__file__).parent
+    log_file = script_dir / "sample_log.txt"
+    analyzer = LogAnalyzer(log_file)
     analyzer.read_and_count()
     analyzer.print_summary()

@@ -1,5 +1,0 @@
-INFO User logged in
-ERROR Cannot connect to printer
-WARNING Disk space low
-ERROR Network timeout
-INFO Backup completed
